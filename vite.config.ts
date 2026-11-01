@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite';
+﻿import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import {fileURLToPath} from 'url';
 import {defineConfig} from 'vite';
@@ -22,10 +22,10 @@ export default defineConfig(() => {
         ],
         manifest: {
           id: '/Charlys_Brothers_Menu/',
-          name: 'D’Batule Restaurante',
-          short_name: 'D’Batule',
+          name: 'Dâ€™Batule Restaurante',
+          short_name: 'Dâ€™Batule',
           description:
-            'Catálogo digital interactivo y experiencia gastronómica de D’Batule Restaurante en La Habana, Cuba.',
+            'CatÃ¡logo digital interactivo y experiencia gastronÃ³mica de Dâ€™Batule Restaurante en La Habana, Cuba.',
           theme_color: '#1A1A1A',
           background_color: '#1A1A1A',
           display: 'standalone',
@@ -34,7 +34,7 @@ export default defineConfig(() => {
           scope: '/Charlys_Brothers_Menu/',
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: '/Charlys_Brothers_Menu/pwa-192x192.png',
               sizes: '192x192',
     type: 'image/png',
     purpose: 'any',
@@ -70,10 +70,11 @@ export default defineConfig(() => {
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
+      // Do not modifyâ€”file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };
 });
+

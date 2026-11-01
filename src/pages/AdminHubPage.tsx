@@ -79,7 +79,7 @@ export const AdminHubPage: React.FC = () => {
     };
   }, []);
 
-  const adminDirectUrl = typeof window !== 'undefined' ? `${window.location.origin}/admin` : '/admin';
+  const adminDirectUrl = typeof window !== 'undefined' ? `${window.location.origin}${import.meta.env.BASE_URL}admin` : '/admin';
 
   const handleCopyAdminLink = async () => {
     try {
