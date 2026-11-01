@@ -1,1 +1,87 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-script: "Dancing Script", cursive;
+
+  --color-gold: #D4AF37;
+  --color-gold-light: #F8E6C1;
+  --color-gold-dark: #8B5E34;
+  --color-dark-surface: #1A1A1A;
+  --color-dark-brown: #2B1F14;
+  --color-warm-brown: #8B5E34;
+  --color-brand-red: #E63946;
+  --color-brand-green: #2E7D32;
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #120F0D;
+    color: #F8E6C1;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE / Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  #root::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Ocultar barra de desplazamiento visualmente conservando desplazamiento táctil, ratón y teclado */
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox and modern Chromium */
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    width: 0px;
+    height: 0px;
+  }
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.font-script {
+  font-family: var(--font-script), "Dancing Script", cursive;
+}
+
+.font-display {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0D4 0%, #D4AF37 50%, #B88E28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-button-gradient {
+  background: linear-gradient(135deg, #E8C86A 0%, #D4AF37 50%, #B88924 100%);
+}
+
+.gold-button-gradient:hover {
+  background: linear-gradient(135deg, #F3D784 0%, #DFBA44 50%, #C89930 100%);
+}

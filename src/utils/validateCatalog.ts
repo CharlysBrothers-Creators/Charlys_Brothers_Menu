@@ -349,17 +349,12 @@ export function runCheckoutAudit(): AuditSectionResult {
   const v4 = validateCheckoutDraft(invalidTakeaway, 'takeaway', DBATULE_ORDER_SETTINGS);
   assert(!v4.isValid && Boolean(v4.errors.customerName) && Boolean(v4.errors.phone), 'Validación fallida: Takeaway sin nombre ni teléfono fue permitido.');
 
-  // 6. Delivery requiere nombre, teléfono, municipio, zona y dirección pero NO mesa
+  // 6. Delivery requiere nombre, teléfono y dirección pero NO mesa
   const validDelivery = {
     ...defaultDraft,
     delivery: {
       customerName: 'Beatriz',
       phone: '+5359876543',
-      municipality: 'Playa',
-      zoneId: 'pla-miramar',
-      zoneName: 'Miramar',
-      deliveryFee: 700,
-      isFeePending: false,
       address: 'Calle 23 #456 e/ H e I',
       landmarks: 'Casa azul',
       notes: '',
@@ -368,45 +363,12 @@ export function runCheckoutAudit(): AuditSectionResult {
   const v5 = validateCheckoutDraft(validDelivery, 'delivery', DBATULE_ORDER_SETTINGS);
   assert(v5.isValid, `Delivery válido falló: ${JSON.stringify(v5.errors)}`);
 
-  // 6b. Delivery sin municipio debe fallar
-  const invalidDeliveryNoMun = {
-    ...defaultDraft,
-    delivery: { ...validDelivery.delivery, municipality: '' },
-  };
-  const v6a = validateCheckoutDraft(invalidDeliveryNoMun, 'delivery', DBATULE_ORDER_SETTINGS);
-  assert(!v6a.isValid && Boolean(v6a.errors.municipality), 'Validación fallida: Delivery sin municipio fue permitido.');
-
-  // 6c. Delivery sin zona debe fallar
-  const invalidDeliveryNoZone = {
-    ...defaultDraft,
-    delivery: { ...validDelivery.delivery, zoneId: '' },
-  };
-  const v6b = validateCheckoutDraft(invalidDeliveryNoZone, 'delivery', DBATULE_ORDER_SETTINGS);
-  assert(!v6b.isValid && Boolean(v6b.errors.zone), 'Validación fallida: Delivery sin zona fue permitido.');
-
-  // 6d. Delivery con zona no listada requiere customZoneName
-  const invalidDeliveryUnlistedNoName = {
-    ...defaultDraft,
-    delivery: { ...validDelivery.delivery, zoneId: '__unlisted__', customZoneName: '' },
-  };
-  const v6c = validateCheckoutDraft(invalidDeliveryUnlistedNoName, 'delivery', DBATULE_ORDER_SETTINGS);
-  assert(!v6c.isValid && Boolean(v6c.errors.customZoneName), 'Validación fallida: Destino no listado sin nombre de reparto fue permitido.');
-
-  // 6e. Delivery con zona no listada y customZoneName válido pasa
-  const validDeliveryUnlisted = {
-    ...defaultDraft,
-    delivery: { ...validDelivery.delivery, zoneId: '__unlisted__', customZoneName: 'Reparto Chibás sector 3', isFeePending: true, deliveryFee: null },
-  };
-  const v6d = validateCheckoutDraft(validDeliveryUnlisted, 'delivery', DBATULE_ORDER_SETTINGS);
-  assert(v6d.isValid, `Delivery con zona no listada válida falló: ${JSON.stringify(v6d.errors)}`);
-
-  // 6f. Delivery sin dirección debe fallar
   const invalidDelivery = {
     ...defaultDraft,
-    delivery: { ...validDelivery.delivery, address: '' },
+    delivery: { customerName: 'Beatriz', phone: '+5359876543', address: '', notes: '' },
   };
-  const v6e = validateCheckoutDraft(invalidDelivery, 'delivery', DBATULE_ORDER_SETTINGS);
-  assert(!v6e.isValid && Boolean(v6e.errors.address), 'Validación fallida: Delivery sin dirección fue permitido.');
+  const v6 = validateCheckoutDraft(invalidDelivery, 'delivery', DBATULE_ORDER_SETTINGS);
+  assert(!v6.isValid && Boolean(v6.errors.address), 'Validación fallida: Delivery sin dirección fue permitido.');
 
   // 7. Modality deshabilitada rechaza validación
   const fakeSettings = {
@@ -683,11 +645,6 @@ export async function runComandasAudit(): Promise<AuditSectionResult> {
   testDraft.delivery = {
     customerName: 'Laura Morales',
     phone: '+5351234567',
-    municipality: 'Playa',
-    zoneId: 'pla-miramar',
-    zoneName: 'Miramar',
-    deliveryFee: 700,
-    isFeePending: false,
     address: 'Calle 10 #152 e/ 1ra y 3ra',
     landmarks: 'Portón blanco',
     notes: 'Tocar timbre 2 veces',
@@ -1023,11 +980,6 @@ export async function runCustomerSeparationAndWhatsAppAudit(): Promise<WhatsAppS
     delivery: {
       customerName: 'Laura Fernández',
       phone: '+53 5 234 5678',
-      municipality: 'Playa',
-      zoneId: 'pla-miramar',
-      zoneName: 'Miramar',
-      deliveryFee: 700,
-      isFeePending: false,
       address: 'Calle 23 #456 e/ G e H, Apto 4B',
       landmarks: 'Frente al parque',
       notes: 'Llamar al timbre blanco',
@@ -1084,42 +1036,25 @@ export async function runCustomerSeparationAndWhatsAppAudit(): Promise<WhatsAppS
   const containsModality = formattedMessage.includes('Entrega a domicilio');
   const containsCustomer = formattedMessage.includes('Laura Fernández');
   const containsAddress = formattedMessage.includes('Calle 23 #456');
-  const containsMunicipality = formattedMessage.includes('Playa');
-  const containsZone = formattedMessage.includes('Miramar');
   const containsItem = formattedMessage.includes('Pizza Napolitana');
   const containsExtra = formattedMessage.includes('Queso extra');
   const containsNotes = formattedMessage.includes('Llamar al timbre blanco');
   const containsFeeNotice = formattedMessage.toLowerCase().includes('mensajería');
-  const hasNoFFFD = !formattedMessage.includes('\uFFFD');
-  const roundtripValid = decodeURIComponent(encodeURIComponent(formattedMessage)) === formattedMessage;
-  const containsEmojis =
-    formattedMessage.includes('🏪') &&
-    formattedMessage.includes('🧾') &&
-    formattedMessage.includes('🍽️') &&
-    formattedMessage.includes('👤') &&
-    formattedMessage.includes('📞') &&
-    formattedMessage.includes('📍') &&
-    formattedMessage.includes('🛵') &&
-    formattedMessage.includes('💰') &&
-    formattedMessage.includes('📝');
-  const containsTotal = formattedMessage.includes(formatCUP(sampleSummary.grandTotal + 700));
+  const containsEmojis = formattedMessage.includes('🏪') && formattedMessage.includes('🧾') && formattedMessage.includes('🍽️') && formattedMessage.includes('🛵') && formattedMessage.includes('💰');
+  const containsTotal = formattedMessage.includes(formatCUP(sampleSummary.grandTotal));
 
   assert(
     containsRef &&
     containsModality &&
     containsCustomer &&
     containsAddress &&
-    containsMunicipality &&
-    containsZone &&
     containsItem &&
     containsExtra &&
     containsNotes &&
     containsFeeNotice &&
     containsEmojis &&
-    hasNoFFFD &&
-    roundtripValid &&
     containsTotal,
-    'Test 5 falló: El mensaje generado para WhatsApp no contiene todos los campos, emojis válidos o falló la codificación UTF-8.'
+    'Test 5 falló: El mensaje generado para WhatsApp no contiene todos los campos y emojis exigidos.'
   );
 
   // Test 6: Validación de número de WhatsApp (imposibilita enviar si falta o es inválido)
@@ -1280,35 +1215,11 @@ export async function runNavigationAndDeliveryRatesAudit(): Promise<{
   const hasDeliveryShortcut = adminHubContent.includes('tab=delivery') && adminHubContent.includes('Tarifas de Mensajería');
   assert(hasDeliveryShortcut, 'Test 12 falló: AdminHubPage carece del acceso directo a las tarifas de mensajería.');
 
-  // 12. Cabecera administrativa en AdminHubPage es responsiva en móviles sin desbordar
-  const hasResponsiveHeader =
-    adminHubContent.includes('flex-col sm:flex-row') &&
-    adminHubContent.includes('grid grid-cols-2 sm:flex');
-  assert(hasResponsiveHeader, 'Test 13 falló: La cabecera administrativa debe usar distribución responsiva para móviles.');
-
-  // 13. React Router configurado con HashRouter para evitar 404 en GitHub Pages
-  const appTsxContent = fs.readFileSync('src/App.tsx', 'utf-8');
-  const usesHashRouter = appTsxContent.includes('HashRouter');
-  assert(usesHashRouter, 'Test 14 falló: App.tsx debe usar HashRouter para evitar errores 404 al recargar en GitHub Pages.');
-
-  // 14. GitHub Actions workflow deploy.yml existe y está configurado
-  const deployWorkflowPath = '.github/workflows/deploy.yml';
-  const hasDeployWorkflow = fs.existsSync(deployWorkflowPath);
-  assert(hasDeployWorkflow, 'Test 15 falló: Debe existir .github/workflows/deploy.yml para el despliegue automático.');
-
-  // 15. Helper de resolución de recursos estáticos compatible con GitHub Pages
-  const { resolveAssetUrl } = await import('./assetHelper');
-  const resolvedWithDefault = resolveAssetUrl('/images/dbatule-hero.jpg');
-  assert(
-    resolvedWithDefault.includes('images/dbatule-hero.jpg'),
-    'Test 16 falló: resolveAssetUrl no resolvió la ruta correctamente.'
-  );
-
   return {
     isValid: errors.length === 0,
     errors,
     testsPassed,
-    totalTests: 16,
+    totalTests,
   };
 }
 

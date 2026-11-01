@@ -219,11 +219,6 @@ export const DeliveryForm: React.FC<DeliveryFormProps> = ({
               placeholder="Ej. Managua más allá de la curva, Reparto Chibás sector 3..."
               className="w-full px-3 py-2 rounded-xl bg-black/60 border border-amber-500/30 text-stone-100 placeholder-stone-500 text-xs focus:outline-hidden focus:border-[#D4AF37] transition"
             />
-            {errors.customZoneName && (
-              <p className="text-[11px] text-[#E63946] font-medium mt-1">
-                {errors.customZoneName}
-              </p>
-            )}
           </div>
         )}
 

@@ -5,9 +5,8 @@
 export function registerServiceWorker(): void {
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     window.addEventListener('load', () => {
-      const swUrl = `${import.meta.env.BASE_URL}sw.js`;
       navigator.serviceWorker
-        .register(swUrl)
+        .register('/sw.js')
         .then((reg) => {
           console.info('PWA Service Worker registrado con éxito:', reg.scope);
         })

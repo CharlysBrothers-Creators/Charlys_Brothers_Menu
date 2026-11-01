@@ -1,13 +1,13 @@
 node_modules/
 build/
 dist/
-dev-dist/
 coverage/
 .DS_Store
 *.log
-*.tmp
-.vite-temp/
 .env*
 !.env.example
 
-public/assets/aistudio/*.zip
+# Archivos generados por Vite
+dev-dist/
+dist/
+node_modules/

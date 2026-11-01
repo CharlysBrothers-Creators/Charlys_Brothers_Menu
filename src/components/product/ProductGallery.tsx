@@ -15,7 +15,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
   const touchEndX = useRef<number | null>(null);
 
   const hasMultipleImages = images && images.length > 1;
-  const currentImage = images[currentIndex] || images[0] || '/images/dbatule-hero.jpg';
+  const currentImage = images[currentIndex] || images[0] || '/Charlys_Brothers_Menu/images/dbatule-hero.jpg';
 
   const goToPrev = () => {
     if (!hasMultipleImages) return;

@@ -57,33 +57,18 @@ export function validateCheckoutDraft(
   } else if (modality === 'delivery') {
     const name = draft.delivery.customerName?.trim();
     const phone = draft.delivery.phone?.trim();
-    const municipality = draft.delivery.municipality?.trim();
-    const zoneId = draft.delivery.zoneId?.trim();
-    const customZoneName = draft.delivery.customZoneName?.trim();
     const address = draft.delivery.address?.trim();
 
     if (!name || name.length < 2) {
-      errors.customerName = 'Por favor ingresa el nombre de quien recibe la entrega.';
+      errors.customerName = 'Por favor ingresa tu nombre para la entrega.';
     }
 
     if (!phone || phone.replace(/\D/g, '').length < 6) {
-      errors.phone = 'Por favor ingresa un número de teléfono de contacto válido (mínimo 6 dígitos).';
-    }
-
-    if (!municipality) {
-      errors.municipality = 'Por favor selecciona el municipio de entrega (obligatorio).';
-    }
-
-    if (!zoneId) {
-      errors.zone = 'Por favor selecciona la zona o reparto de entrega (obligatorio).';
-    } else if (zoneId === '__unlisted__' || municipality === '__other__') {
-      if (!customZoneName || customZoneName.length < 2) {
-        errors.customZoneName = 'Por favor escribe el nombre de tu reparto o localidad para cotizar la mensajería.';
-      }
+      errors.phone = 'Por favor ingresa un número de teléfono de contacto válido.';
     }
 
     if (!address || address.length < 5) {
-      errors.address = 'Por favor indica la dirección exacta de entrega (calle, número, entrecalles).';
+      errors.address = 'Por favor indica la dirección de entrega detallada (calle, número, entrecalles).';
     }
   }
 

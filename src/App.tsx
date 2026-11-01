@@ -1,10 +1,11 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import React, { useEffect } from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { MobileShell } from './components/layout/MobileShell';
 import { AppRoutes } from './routes/AppRoutes';
 import { PWAInstallBanner } from './components/common/PWAInstallBanner';
@@ -18,7 +19,7 @@ export default function App() {
   }, []);
 
   return (
-    <HashRouter>
+    <BrowserRouter basename="/Charlys_Brothers_Menu">
       <CartProvider>
         <MobileShell>
           <AppRoutes />
@@ -26,6 +27,6 @@ export default function App() {
           <PWAInstallBanner />
         </MobileShell>
       </CartProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

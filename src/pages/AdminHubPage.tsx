@@ -79,9 +79,7 @@ export const AdminHubPage: React.FC = () => {
     };
   }, []);
 
-  const adminDirectUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}${window.location.pathname}#/admin`
-    : '#/admin';
+  const adminDirectUrl = typeof window !== 'undefined' ? `${window.location.origin}/admin` : '/admin';
 
   const handleCopyAdminLink = async () => {
     try {
@@ -96,47 +94,44 @@ export const AdminHubPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-full flex-1 bg-[#120F0D] text-stone-100 select-none pb-24">
       {/* Top Header */}
-      <header className="sticky top-0 z-30 bg-[#120F0D]/95 backdrop-blur-md border-b border-[#2B1F14]/90 px-3.5 sm:px-6 py-2.5 sm:py-3 shadow-md">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3">
-          {/* Brand & Identity */}
-          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1F1813] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] shadow-xs flex-shrink-0">
+      <header className="sticky top-0 z-30 bg-[#120F0D]/95 backdrop-blur-md border-b border-[#2B1F14]/90 px-4 sm:px-6 py-3 shadow-md">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#1F1813] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] shadow-xs">
               <ChefHat className="w-5 h-5 stroke-[2.2]" />
             </div>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2 flex-wrap">
+            <div>
+              <div className="flex items-center gap-2">
                 <span className="font-display text-base sm:text-lg font-bold tracking-wider gold-gradient-text">
                   D’BATULE
                 </span>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/35 whitespace-nowrap">
+                <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30">
                   Panel Interno
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[11px] text-stone-400 block tracking-wide truncate">
+              <span className="text-[10px] text-stone-400 block tracking-wide">
                 Portal Administrativo del Restaurante
               </span>
             </div>
           </div>
 
-          {/* Action buttons (Comfortable 2-column on small screens, flex on desktop) */}
-          <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto flex-shrink-0">
+          <div className="flex items-center gap-2">
             {/* Quick Copy Link Button in Header */}
             <button
               type="button"
               onClick={handleCopyAdminLink}
               title="Copiar enlace directo al panel administrativo"
-              aria-label="Copiar enlace directo al panel administrativo"
-              className="flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-xl bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 active:bg-[#D4AF37]/30 text-[#D4AF37] border border-[#D4AF37]/35 text-xs font-semibold transition active:scale-95 cursor-pointer min-h-[38px] select-none"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[#D4AF37] border border-[#D4AF37]/35 text-xs font-semibold transition active:scale-95 cursor-pointer"
             >
               {linkCopied ? (
                 <>
-                  <Check className="w-3.5 h-3.5 stroke-[2.5] text-emerald-400 flex-shrink-0" />
-                  <span className="text-emerald-400 font-bold">¡Copiado!</span>
+                  <Check className="w-3.5 h-3.5 stroke-[2.5] text-emerald-400" />
+                  <span className="text-emerald-400 hidden sm:inline">¡Enlace copiado!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>Copiar enlace</span>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Copiar enlace</span>
                 </>
               )}
             </button>
@@ -145,12 +140,11 @@ export const AdminHubPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('/menu')}
-              className="flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-xl bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/10 text-stone-300 hover:text-white text-xs font-semibold transition active:scale-95 cursor-pointer min-h-[38px] select-none"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-stone-300 hover:text-white text-xs font-semibold transition active:scale-95 cursor-pointer"
               title="Abrir la carta pública del cliente"
-              aria-label="Ver menú público del cliente"
             >
-              <span>Ver Menú</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
+              <span className="hidden sm:inline">Ver Menú Público</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37]" />
             </button>
           </div>
         </div>

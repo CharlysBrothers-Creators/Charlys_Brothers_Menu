@@ -286,7 +286,7 @@ export const CheckoutPage: React.FC = () => {
   };
 
   const handleProceedToReview = () => {
-    const outcome = validateCheckoutDraft(draft, draft.modality, businessSettings);
+    const outcome = validateCheckoutDraft(draft, draft.modality, DBATULE_ORDER_SETTINGS);
     if (!outcome.isValid) {
       setErrors(outcome.errors);
       return;

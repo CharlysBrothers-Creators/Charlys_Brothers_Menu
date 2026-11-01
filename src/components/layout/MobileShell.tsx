@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { BottomNavigation } from '../navigation/BottomNavigation';
-import { resolveAssetUrl } from '../../utils/assetHelper';
 
 interface MobileShellProps {
   children: React.ReactNode;
@@ -16,7 +15,7 @@ export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
       {/* Ambient background for desktop view */}
       <div
         className="fixed inset-0 pointer-events-none hidden md:block bg-cover bg-center opacity-25 filter blur-xl scale-105"
-        style={{ backgroundImage: `url('${resolveAssetUrl('/images/restaurant-ambience.jpg')}')` }}
+        style={{ backgroundImage: `url('/Charlys_Brothers_Menu/images/restaurant-ambience.jpg')` }}
       />
       <div className="fixed inset-0 pointer-events-none hidden md:block bg-gradient-to-b from-[#0D0A08]/90 via-[#0D0A08]/85 to-[#0D0A08]" />
 

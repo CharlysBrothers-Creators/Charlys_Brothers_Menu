@@ -1,15 +1,14 @@
 import { BusinessProfile } from '../types/catalog';
 import { THEME_COLORS } from '../theme/colors';
-import { resolveAssetUrl } from '../utils/assetHelper';
 
 export const DBATULE_PROFILE: BusinessProfile = {
   id: 'dbatule-restaurante',
-  name: 'D’BATULE',
+  name: 'D�?TBATULE',
   category: 'RESTAURANTE',
   slogan: 'Buena comida, buenos momentos',
   location: 'LA HABANA, CUBA',
-  heroImage: resolveAssetUrl('/images/dbatule-hero.jpg'),
-  ambienceImage: resolveAssetUrl('/images/restaurant-ambience.jpg'),
+  heroImage: '/Charlys_Brothers_Menu/images/dbatule-hero.jpg',
+  ambienceImage: '/Charlys_Brothers_Menu/images/restaurant-ambience.jpg',
   features: [
     {
       id: 'platos',

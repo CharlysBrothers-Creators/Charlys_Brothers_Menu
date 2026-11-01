@@ -1,14 +1,13 @@
-import { resolveAssetUrl } from "../utils/assetHelper";
 import { ProductDetails } from '../types/productOptions';
 
 /**
- * DATOS DE DEMOSTRACIÓN (DEMO)
+ * DATOS DE DEMOSTRACI�"N (DEMO)
  * -------------------------------------------------------------
  * Claramente separados de los 29 productos oficiales de D'Batule.
  * Se utilizan exclusivamente para demostrar la versatilidad de la
  * ficha técnica (muchos ingredientes, pocos ingredientes, variantes,
  * extras gratuitos/de pago y galerías múltiples).
- * 
+ *
  * NO constituyen información oficial ni recetas confirmadas del restaurante.
  * Toda ficha con datos DEMO muestra un distintivo visible y un aviso
  * aclaratorio sobre la no verificación de alérgenos.
@@ -19,12 +18,12 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     productId: 'hamburguesa-3-chinitos',
     isDemoData: true,
     description:
-      'Hamburguesa de la casa con una combinación de sabores que la hacen única. Jugosa, con ingredientes frescos y un toque especial de la cocina de D’Batule.',
+      'Hamburguesa de la casa con una combinación de sabores que la hacen única. Jugosa, con ingredientes frescos y un toque especial de la cocina de D�?TBatule.',
     images: [
-      resolveAssetUrl('/images/products/hamburguesa-cheese.jpg'),
-      resolveAssetUrl('/images/products/burger-gallery-2.jpg'),
-      resolveAssetUrl('/images/products/burger-gallery-3.jpg'),
-      resolveAssetUrl('/images/products/burger-gallery-4.jpg'),
+      '/Charlys_Brothers_Menu/images/products/hamburguesa-cheese.jpg',
+      '/Charlys_Brothers_Menu/images/products/burger-gallery-2.jpg',
+      '/Charlys_Brothers_Menu/images/products/burger-gallery-3.jpg',
+      '/Charlys_Brothers_Menu/images/products/burger-gallery-4.jpg',
     ],
     ingredients: [
       { id: 'ing-1', name: 'Carne de res', iconName: 'beef', order: 1 },
@@ -75,9 +74,9 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     description:
       'Clásica pizza napolitana horneada a alta temperatura, con salsa de tomate natural, mozzarella fundida y hojas de albahaca fresca sobre una masa crujiente y ligera.',
     images: [
-      resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
-      resolveAssetUrl('/images/products/pizza-gallery-2.jpg'),
-      resolveAssetUrl('/images/products/pizza-gallery-3.jpg'),
+      '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
+      '/Charlys_Brothers_Menu/images/products/pizza-gallery-2.jpg',
+      '/Charlys_Brothers_Menu/images/products/pizza-gallery-3.jpg',
     ],
     ingredients: [
       { id: 'ing-pn1', name: 'Masa madre artesanal', iconName: 'bread', order: 1 },
@@ -117,10 +116,10 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     productId: 'arroz-frito-pollo-ahumado',
     isDemoData: true,
     description:
-      'Generosa porción para compartir de arroz frito al wok con pollo ahumado tradicional, vegetales frescos crujientes y un toque ahumado característico de la cocina de D’Batule.',
+      'Generosa porción para compartir de arroz frito al wok con pollo ahumado tradicional, vegetales frescos crujientes y un toque ahumado característico de la cocina de D�?TBatule.',
     images: [
-      resolveAssetUrl('/images/products/arroz-pollo.jpg'),
-      resolveAssetUrl('/images/products/arroz-especial.jpg'),
+      '/Charlys_Brothers_Menu/images/products/arroz-pollo.jpg',
+      '/Charlys_Brothers_Menu/images/products/arroz-especial.jpg',
     ],
     ingredients: [
       { id: 'ing-ap1', name: 'Arroz jazmín salteado al wok', iconName: 'bread', order: 1 },
@@ -154,8 +153,8 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     description:
       'Refrescante batido artesanal elaborado al momento con pulpa de mango maduro caribeño y toque cremoso.',
     images: [
-      resolveAssetUrl('/images/products/batido-mango.jpg'),
-      resolveAssetUrl('/images/products/jugo-natural.jpg'),
+      '/Charlys_Brothers_Menu/images/products/batido-mango.jpg',
+      '/Charlys_Brothers_Menu/images/products/jugo-natural.jpg',
     ],
     ingredients: [
       { id: 'ing-bm1', name: 'Pulpa de mango maduro natural', iconName: 'salad', order: 1 },
@@ -193,15 +192,15 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     description:
       'Clásica hamburguesa con medallón de res a la plancha, doble queso cheddar derretido, pepinillos encurtidos y salsa artesanal en pan brioche suave.',
     images: [
-      resolveAssetUrl('/images/products/hamburguesa-cheese.jpg'),
-      resolveAssetUrl('/images/products/hamburguesa-natural.jpg'),
+      '/Charlys_Brothers_Menu/images/products/hamburguesa-cheese.jpg',
+      '/Charlys_Brothers_Menu/images/products/hamburguesa-natural.jpg',
     ],
     ingredients: [
       { id: 'ing-cb1', name: 'Carne de res seleccionada', iconName: 'beef', order: 1 },
       { id: 'ing-cb2', name: 'Doble queso cheddar fundido', iconName: 'cheese', order: 2 },
       { id: 'ing-cb3', name: 'Pepinillos encurtidos', iconName: 'pickle', order: 3 },
       { id: 'ing-cb4', name: 'Cebolla caramelizada', iconName: 'onion', order: 4 },
-      { id: 'ing-cb5', name: 'Salsa burger D’Batule', iconName: 'sauce', order: 5 },
+      { id: 'ing-cb5', name: 'Salsa burger D�?TBatule', iconName: 'sauce', order: 5 },
       { id: 'ing-cb6', name: 'Pan brioche tostado', iconName: 'bread', order: 6 },
     ],
     customizationGroups: [

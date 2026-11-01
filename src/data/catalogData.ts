@@ -1,4 +1,3 @@
-import { resolveAssetUrl } from "../utils/assetHelper";
 import { Category, Product } from '../types/catalog';
 
 export const CATEGORIES_DATA: Category[] = [
@@ -6,42 +5,42 @@ export const CATEGORIES_DATA: Category[] = [
     id: 'para-compartir',
     name: 'Para compartir',
     description: 'Especialidades de arroz estilo oriental para disfrutar en compañía',
-    image: resolveAssetUrl('/images/categories/para-compartir.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/para-compartir.jpg',
     order: 1,
   },
   {
     id: 'pizzas',
     name: 'Pizzas',
     description: 'Masa artesanal horneada con salsa de tomate y queso',
-    image: resolveAssetUrl('/images/categories/pizzas.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/pizzas.jpg',
     order: 2,
   },
   {
     id: 'pastas',
     name: 'Pastas',
     description: 'Pastas italianas tradicionales con salsas y mariscos selectos',
-    image: resolveAssetUrl('/images/categories/pastas.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/pastas.jpg',
     order: 3,
   },
   {
     id: 'hamburguesas',
     name: 'Hamburguesas',
     description: 'Hamburguesas clásicas y de la casa preparadas al momento',
-    image: resolveAssetUrl('/images/categories/hamburguesas.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/hamburguesas.jpg',
     order: 4,
   },
   {
     id: 'sandwiches',
     name: 'Sándwiches',
     description: 'Sándwiches calientes con panes frescos y rellenos variados',
-    image: resolveAssetUrl('/images/categories/sandwiches.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/sandwiches.jpg',
     order: 5,
   },
   {
     id: 'bebidas',
     name: 'Bebidas',
     description: 'Refrescantes batidos y jugos naturales elaborados con fruta fresca',
-    image: resolveAssetUrl('/images/categories/bebidas.jpg'),
+    image: '/Charlys_Brothers_Menu/images/categories/bebidas.jpg',
     order: 6,
   },
 ];
@@ -54,7 +53,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'para-compartir',
     price: 7600,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/arroz-pollo.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/arroz-pollo.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -63,7 +62,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'para-compartir',
     price: 7600,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/arroz-pollo.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/arroz-pollo.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -72,7 +71,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'para-compartir',
     price: 10750,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/arroz-especial.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/arroz-especial.jpg',
     isIllustrativePhoto: true,
   },
 
@@ -83,7 +82,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 3800,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -92,7 +91,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 3800,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -101,7 +100,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 4800,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-jamon.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -110,7 +109,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 4200,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -119,7 +118,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 4500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -128,7 +127,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 5700,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-camaron.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-camaron.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -137,7 +136,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 5500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-jamon.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -146,7 +145,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 5250,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -155,7 +154,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 5700,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-quesos.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-quesos.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -164,7 +163,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pizzas',
     price: 5500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pizza-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pizza-jamon.jpg',
     isIllustrativePhoto: true,
   },
 
@@ -175,7 +174,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 4900,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -184,7 +183,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 5250,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -193,7 +192,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 6000,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-camaron.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-camaron.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -202,7 +201,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 6200,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -211,7 +210,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 5800,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-napolitana.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-napolitana.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -220,7 +219,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'pastas',
     price: 6300,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/pasta-quesos.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/pasta-quesos.jpg',
     isIllustrativePhoto: true,
   },
 
@@ -231,7 +230,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'hamburguesas',
     price: 4800,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/hamburguesa-cheese.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/hamburguesa-cheese.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -240,7 +239,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'hamburguesas',
     price: 5500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/hamburguesa-cheese.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/hamburguesa-cheese.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -249,7 +248,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'hamburguesas',
     price: 4500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/hamburguesa-natural.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/hamburguesa-natural.jpg',
     isIllustrativePhoto: true,
   },
 
@@ -260,7 +259,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'sandwiches',
     price: 5000,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/sandwich-pollo.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/sandwich-pollo.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -269,7 +268,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'sandwiches',
     price: 4250,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/sandwich-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/sandwich-jamon.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -278,7 +277,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'sandwiches',
     price: 3700,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/sandwich-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/sandwich-jamon.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -287,7 +286,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'sandwiches',
     price: 5200,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/sandwich-pollo.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/sandwich-pollo.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -296,7 +295,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'sandwiches',
     price: 5000,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/sandwich-jamon.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/sandwich-jamon.jpg',
     isIllustrativePhoto: true,
   },
 
@@ -307,7 +306,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'bebidas',
     price: 1500,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/batido-mango.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/batido-mango.jpg',
     isIllustrativePhoto: true,
   },
   {
@@ -316,7 +315,7 @@ export const PRODUCTS_DATA: Product[] = [
     categoryId: 'bebidas',
     price: 1000,
     currency: 'CUP',
-    image: resolveAssetUrl('/images/products/jugo-natural.jpg'),
+    image: '/Charlys_Brothers_Menu/images/products/jugo-natural.jpg',
     isIllustrativePhoto: true,
   },
 ];
