@@ -1,0 +1,6 @@
+{
+  "name": "D’Batule — Catálogo Digital & Restaurante",
+  "description": "Catálogo digital interactivo y experiencia gastronómica de D’Batule Restaurante en La Habana, Cuba. Buena comida, buenos momentos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

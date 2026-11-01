@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#1A1A1A"/>
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8E6C1" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8B5E34" />
+    </linearGradient>
+  </defs>
+  <!-- Chef Hat Icon -->
+  <path d="M256 120 C220 120 200 145 190 170 C165 170 145 192 145 220 C145 245 160 265 180 272 L180 340 C180 348 188 355 198 355 L314 355 C324 355 332 348 332 340 L332 272 C352 265 367 245 367 220 C367 192 347 170 322 170 C312 145 292 120 256 120 Z" 
+        fill="none" stroke="url(#gold)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M190 310 L322 310" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+  <!-- Letter D with apostrophe and B -->
+  <text x="256" y="425" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="url(#gold)" text-anchor="middle" letter-spacing="4">D’BATULE</text>
+</svg>
