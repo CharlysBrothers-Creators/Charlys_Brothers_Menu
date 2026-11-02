@@ -1,4 +1,4 @@
-﻿import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import {fileURLToPath} from 'url';
 import {defineConfig} from 'vite';
@@ -22,10 +22,10 @@ export default defineConfig(() => {
         ],
         manifest: {
           id: '/Charlys_Brothers_Menu/',
-          name: 'Dâ€™Batule Restaurante',
-          short_name: 'Dâ€™Batule',
+          name: 'D’Batule Restaurante',
+          short_name: 'D’Batule',
           description:
-            'CatÃ¡logo digital interactivo y experiencia gastronÃ³mica de Dâ€™Batule Restaurante en La Habana, Cuba.',
+            'Catálogo digital interactivo y experiencia gastronÃ³mica de D’Batule Restaurante en La Habana, Cuba.',
           theme_color: '#1A1A1A',
           background_color: '#1A1A1A',
           display: 'standalone',

@@ -3,7 +3,7 @@ import { THEME_COLORS } from '../theme/colors';
 
 export const DBATULE_PROFILE: BusinessProfile = {
   id: 'dbatule-restaurante',
-  name: 'D�?TBATULE',
+  name: 'D’BATULE',
   category: 'RESTAURANTE',
   slogan: 'Buena comida, buenos momentos',
   location: 'LA HABANA, CUBA',

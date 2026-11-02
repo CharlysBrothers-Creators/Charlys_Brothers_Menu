@@ -1,90 +1,127 @@
-import React, { useState } from 'react';
-import { Menu, Search, Download } from 'lucide-react';
-import { PendingModal } from './PendingModal';
+﻿import React, { useEffect, useState } from 'react';
+import { Menu, Search, Download, X, Home, BookOpen, ShoppingBag, ClipboardList, ChefHat } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { usePWAInstall } from '../../hooks/usePWAInstall';
 import { DiscreetAdminButton } from './DiscreetAdminButton';
 
 export const HeaderNav: React.FC = () => {
-  const [pendingFeature, setPendingFeature] = useState<{
-    isOpen: boolean;
-    title: string;
-    description: string;
-  }>({
-    isOpen: false,
-    title: '',
-    description: '',
-  });
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const { isInstallable, install } = usePWAInstall();
 
-  const handleMenuClick = () => {
-    setPendingFeature({
-      isOpen: true,
-      title: 'Menú lateral en desarrollo',
-      description:
-        'El panel de navegación lateral se implementará en la Fase 2 del proyecto junto con las secciones completas del restaurante.',
-    });
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [menuOpen]);
+
+  const goTo = (path: string) => {
+    setMenuOpen(false);
+    navigate(path);
   };
 
-  const handleSearchClick = () => {
-    setPendingFeature({
-      isOpen: true,
-      title: 'Búsqueda en desarrollo',
-      description:
-        'El buscador inteligente de platos, bebidas y especialidades estará disponible una vez conectado el catálogo en la siguiente fase.',
-    });
-  };
+  const links = [
+    { label: 'Inicio', path: '/', Icon: Home },
+    { label: 'Carta gastronómica', path: '/menu', Icon: BookOpen },
+    { label: 'Mi carrito', path: '/carrito', Icon: ShoppingBag },
+    { label: 'Mi pedido', path: '/checkout', Icon: ClipboardList },
+    { label: 'Administración DEMO', path: '/admin', Icon: ChefHat },
+  ];
 
   return (
     <>
       <header className="w-full flex items-center justify-between px-5 pt-4 pb-2 z-20">
-        {/* Left Hamburger Button */}
         <button
-          onClick={handleMenuClick}
-          aria-label="Menú lateral (pendiente de implementación)"
+          type="button"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Abrir menú lateral"
+          aria-expanded={menuOpen}
           className="p-2.5 rounded-full bg-black/40 hover:bg-black/60 active:scale-95 text-[#F8E6C1] transition duration-200 border border-white/10 backdrop-blur-sm"
-          title="Menú lateral"
         >
           <Menu className="w-6 h-6 stroke-[1.8]" />
         </button>
 
-        {/* Center / Right controls */}
         <div className="flex items-center gap-2">
-          {/* Discreet Admin Button for development */}
           <DiscreetAdminButton />
 
-          {/* Quick PWA Install Icon Button if available */}
           {isInstallable && (
             <button
+              type="button"
               onClick={install}
-              aria-label="Instalar aplicación PWA"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37]/90 text-[#1A1A1A] font-semibold text-xs shadow-md hover:bg-[#F8E6C1] active:scale-95 transition"
-              title="Instalar D’Batule en tu dispositivo"
+              aria-label="Instalar aplicación"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37]/90 text-[#1A1A1A] font-semibold text-xs"
             >
-              <Download className="w-3.5 h-3.5 stroke-[2.2]" />
+              <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Instalar</span>
             </button>
           )}
 
-          {/* Right Search Button */}
           <button
-            onClick={handleSearchClick}
-            aria-label="Buscar en el menú (pendiente de implementación)"
+            type="button"
+            onClick={() => goTo('/menu')}
+            aria-label="Buscar platos y bebidas"
             className="p-2.5 rounded-full bg-black/40 hover:bg-black/60 active:scale-95 text-[#F8E6C1] transition duration-200 border border-white/10 backdrop-blur-sm"
-            title="Búsqueda"
           >
             <Search className="w-6 h-6 stroke-[1.8]" />
           </button>
         </div>
       </header>
 
-      {/* Non-intrusive Pending notification modal */}
-      <PendingModal
-        isOpen={pendingFeature.isOpen}
-        onClose={() => setPendingFeature((prev) => ({ ...prev, isOpen: false }))}
-        title={pendingFeature.title}
-        description={pendingFeature.description}
-      />
+      {menuOpen && (
+        <div className="fixed inset-0 z-[100] flex">
+          <button
+            type="button"
+            aria-label="Cerrar menú"
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+            onClick={() => setMenuOpen(false)}
+          />
+
+          <nav
+            aria-label="Navegación principal"
+            className="relative h-full w-[min(85vw,340px)] bg-[#17120E] border-r border-[#D4AF37]/30 shadow-2xl flex flex-col"
+          >
+            <div className="flex items-center justify-between px-6 py-7 border-b border-[#D4AF37]/20">
+              <div>
+                <p className="font-serif text-2xl text-[#F8E6C1] font-bold">D’BATULE</p>
+                <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">Restaurante</p>
+              </div>
+              <button
+                type="button"
+                aria-label="Cerrar menú"
+                onClick={() => setMenuOpen(false)}
+                className="p-2 rounded-full border border-white/15 text-[#F8E6C1]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-3 py-6 space-y-2">
+              {links.map(({ label, path, Icon }) => (
+                <button
+                  key={path}
+                  type="button"
+                  onClick={() => goTo(path)}
+                  className="w-full flex items-center gap-4 rounded-xl px-4 py-4 text-left text-[#F8E6C1] hover:bg-[#D4AF37]/10 active:bg-[#D4AF37]/20 transition"
+                >
+                  <Icon className="w-5 h-5 text-[#D4AF37]" />
+                  <span className="text-sm font-semibold">{label}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="px-6 py-6 border-t border-[#D4AF37]/20">
+              <p className="text-center text-xs tracking-widest text-[#D4AF37]/80">
+                LA HABANA · CUBA
+              </p>
+            </div>
+          </nav>
+        </div>
+      )}
     </>
   );
 };

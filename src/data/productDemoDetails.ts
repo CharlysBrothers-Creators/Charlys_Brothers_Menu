@@ -18,7 +18,7 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     productId: 'hamburguesa-3-chinitos',
     isDemoData: true,
     description:
-      'Hamburguesa de la casa con una combinación de sabores que la hacen única. Jugosa, con ingredientes frescos y un toque especial de la cocina de D�?TBatule.',
+      'Hamburguesa de la casa con una combinación de sabores que la hacen única. Jugosa, con ingredientes frescos y un toque especial de la cocina de D’Batule.',
     images: [
       '/Charlys_Brothers_Menu/images/products/hamburguesa-cheese.jpg',
       '/Charlys_Brothers_Menu/images/products/burger-gallery-2.jpg',
@@ -116,7 +116,7 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
     productId: 'arroz-frito-pollo-ahumado',
     isDemoData: true,
     description:
-      'Generosa porción para compartir de arroz frito al wok con pollo ahumado tradicional, vegetales frescos crujientes y un toque ahumado característico de la cocina de D�?TBatule.',
+      'Generosa porción para compartir de arroz frito al wok con pollo ahumado tradicional, vegetales frescos crujientes y un toque ahumado característico de la cocina de D’Batule.',
     images: [
       '/Charlys_Brothers_Menu/images/products/arroz-pollo.jpg',
       '/Charlys_Brothers_Menu/images/products/arroz-especial.jpg',
@@ -200,7 +200,7 @@ export const PRODUCT_DEMO_DETAILS: Record<string, ProductDetails> = {
       { id: 'ing-cb2', name: 'Doble queso cheddar fundido', iconName: 'cheese', order: 2 },
       { id: 'ing-cb3', name: 'Pepinillos encurtidos', iconName: 'pickle', order: 3 },
       { id: 'ing-cb4', name: 'Cebolla caramelizada', iconName: 'onion', order: 4 },
-      { id: 'ing-cb5', name: 'Salsa burger D�?TBatule', iconName: 'sauce', order: 5 },
+      { id: 'ing-cb5', name: 'Salsa burger D’Batule', iconName: 'sauce', order: 5 },
       { id: 'ing-cb6', name: 'Pan brioche tostado', iconName: 'bread', order: 6 },
     ],
     customizationGroups: [
